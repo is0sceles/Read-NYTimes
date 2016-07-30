@@ -62,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
         gvResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SearchActivity.this, "clicked", Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getApplicationContext(), "Can you guess what's happening right now? Have you heard of Json? When you clicked the search button..oh wait, I think we're done.", Toast.LENGTH_LONG ).show();
                  // create an intent to display the article
                 Intent i = new Intent(getApplicationContext(), ArticleActivity.class);
                 // get the article to display
@@ -71,8 +71,6 @@ public class SearchActivity extends AppCompatActivity {
                 i.putExtra("url", article.getWebUrl());
                 // launch the activity
                 startActivity(i);
-                Log.d("DEBUG ", i.toString());
-                Toast.makeText(getApplicationContext(), "uno momento", Toast.LENGTH_SHORT ).show();
             }
         });
     }
@@ -93,6 +91,7 @@ public class SearchActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.menuFilter) {
+            Toast.makeText(getApplicationContext(), "onOptionsItemSelected", Toast.LENGTH_SHORT ).show();
             return true;
         }
 
@@ -132,5 +131,9 @@ public class SearchActivity extends AppCompatActivity {
 
 
         Toast.makeText(this, "Searching for " + query , Toast.LENGTH_SHORT).show();
+    }
+
+    public void showPopUp(View v) {
+      //  Toast.makeText(getApplicationContext(), "filteeer", Toast.LENGTH_SHORT ).show();
     }
 }
